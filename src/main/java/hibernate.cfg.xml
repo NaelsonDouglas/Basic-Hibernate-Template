@@ -19,6 +19,9 @@
 
    <mapping resource="hibernate/mapping/Contacts.hbm.xml"/>
    <mapping class="FirstHibernate.com.myhib.CRUDS.Contacts"/>
+   
+   <mapping resource="hibernate/mapping/Material.hbm.xml"/>
+   <mapping class="FirstHibernate.com.myhib.CRUDS.Material"/>
 
 </session-factory>
 

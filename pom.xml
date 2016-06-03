@@ -3,19 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>FirstHibernate</groupId>
-<<<<<<< HEAD
   <artifactId>com.myhib</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <name>com.myhib</name>
-=======
-  <artifactId>com.myhib.org</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-
-  <name>com.myhib.org</name>
->>>>>>> ab06cfd3286c38712a045a36cb750825862aa177
   <url>http://maven.apache.org</url>
 
   <dependencies>
@@ -49,24 +41,6 @@
   </dependencies>
 
   <build>
-<<<<<<< HEAD
-  <resources>
-  		<resource>
-  			<filtering>true</filtering>
-  			<directory>src/main/resources</directory>
-  		</resource>  
-  </resources>  
-=======
-  
-  <resources>
-  <resource>
-	  	<filtering>true</filtering>
-	  	<directory>src/main/resources</directory>
-  	</resource>
-  	
-  	
-  </resources>
->>>>>>> ab06cfd3286c38712a045a36cb750825862aa177
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

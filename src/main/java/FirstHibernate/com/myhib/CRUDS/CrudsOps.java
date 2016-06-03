@@ -20,22 +20,22 @@ SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		
 		Transaction t =  (Transaction) session.beginTransaction();
 		
-		Contacts p = new Contacts();		
+		Material p = new Material();		
 		p.setId(3);
-		p.setFname("Naelson basssss");
-		p.setLname("Douglas2");		
-		
+		p.setBrand("Naelson basssss");
+		p.setSize(10);		
 		session.save(p);
 		session.getTransaction().commit();
 		
 		
-		Query query = session.createQuery("from Contacts");		
+		
+		Query query = session.createQuery("from Material");		
 		System.out.println(query.list().size());
 		
-		List<Contacts>  users =   query.list();
+		List<Material>  users =   query.list();
 		
-		for (Contacts temp : users){
-			System.out.println(temp.getFname());
+		for (Material temp : users){
+			System.out.println(temp.getBrand());
 		}
 		
 		
