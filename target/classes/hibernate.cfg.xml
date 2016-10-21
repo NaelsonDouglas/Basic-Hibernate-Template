@@ -22,7 +22,25 @@
    
    <mapping resource="hibernate/mapping/Material.hbm.xml"/>
    <mapping class="FirstHibernate.com.myhib.CRUDS.Material"/>
+   
+   
+   <mapping resource="hibernate/mapping/Aluno.hbm.xml"/>
+   <mapping class="pessoal.Aluno"/>
+   
+   <mapping resource="hibernate/mapping/Professor.hbm.xml"/>
+   <mapping class="pessoal.Professor"/>
+   
+   <mapping resource="hibernate/mapping/Disciplina.hbm.xml"/>
+   <mapping class="administrativo.Disciplina"/>
 
+
+	<mapping resource="hibernate/mapping/Secretaria.hbm.xml"/>
+   	<mapping class="administrativo.Secretaria"/>
+   	
+   	<mapping resource="hibernate/mapping/Departamento.hbm.xml"/>
+   	<mapping class="administrativo.Departamento"/>
+   	
+   	<mapping class="administrativo.Departamento4"/>
 </session-factory>
 
 </hibernate-configuration>
