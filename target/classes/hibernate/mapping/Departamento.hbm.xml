@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   
+   <class table="Departamento" lazy="false" name="administrativo.Departamento">
+     
+      <id name="id" type="int" column="id">
+         <generator class="increment"/>
+      </id>
+
+
+	
+	
+	<property name="secGraduacao_id" type="int" column="secGraduacao_id"/>
+	<property name="secPosGraduacao_id" type="int" column="secPosGraduacao_id"/>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+      
+      
+      
+   </class>
+   
+   
+   
+   
+</hibernate-mapping>
