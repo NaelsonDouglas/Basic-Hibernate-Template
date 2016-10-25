@@ -30,7 +30,7 @@ public class Aluno {
 	}
 	
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "DEPARTAMENTO_ID")
 	public Departamento getDepartamentoID() {
 		return departamentoID;
