@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 @Table(name = "DEPARTAMENTO")
 public class Departamento{
 	private long id;
+	private String nome;
 	private SecGraduacao graduacao;
 	private SecPosGraduacao posGraduacao;
 	
@@ -52,6 +53,18 @@ public class Departamento{
 	public void setPosGraduacao(SecPosGraduacao posGraduacao) {
 		this.posGraduacao = posGraduacao;
 	}
+	
+	
+	@Column(name = "NOME")
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	
+	
 	
 	
 	

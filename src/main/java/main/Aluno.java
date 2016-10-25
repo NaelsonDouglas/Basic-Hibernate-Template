@@ -14,10 +14,8 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ALUNO")
-public class Aluno {
+public class Aluno extends Pessoa{
 	
-	private long id;		
-	private Departamento departamentoID;	
 	private int cresdsCumpridos;
 	
 	
@@ -31,18 +29,12 @@ public class Aluno {
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "DEPARTAMENTO_ID")
 	public Departamento getDepartamentoID() {
 		return departamentoID;
-	}
-	public void setDepartamentoID(Departamento departamentoID) {
-		this.departamentoID = departamentoID;
 	}
 	
 	
@@ -53,6 +45,17 @@ public class Aluno {
 	public void setCresdsCumpridos(int cresdsCumpridos) {
 		this.cresdsCumpridos = cresdsCumpridos;
 	}
+	
+	@Column(name = "NOME")
+	public String getNome() {
+		return nome;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

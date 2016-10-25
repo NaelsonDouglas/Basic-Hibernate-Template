@@ -38,12 +38,19 @@ public class Main {
 		SecGraduacao grad = new SecGraduacao();
 		dpt.setGraduacao(grad);
 		dpt.setPosGraduacao(posGrad);
+		dpt.setNome("whatever");
+		
+		Professor prof =  new Professor();
+		prof.setNome("Willy");
+		prof.setDepartamentoID(dpt);
+		
 		
 		aln.setDepartamentoID(dpt);
 		
 		
 		
 		session.save(aln);
+		session.save(prof);
 		session.getTransaction().commit();
 		session.close();
 		
