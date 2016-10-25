@@ -31,8 +31,16 @@ public class Main {
 		
 		
 		Aluno aln = new Aluno();
+		aln.setCresdsCumpridos(500);
+		
 		Departamento dpt = new Departamento();
+		SecPosGraduacao posGrad = new SecPosGraduacao();
+		SecGraduacao grad = new SecGraduacao();
+		dpt.setGraduacao(grad);
+		dpt.setPosGraduacao(posGrad);
+		
 		aln.setDepartamentoID(dpt);
+		
 		
 		
 		session.save(aln);

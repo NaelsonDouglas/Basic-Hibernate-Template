@@ -21,6 +21,9 @@
    
    <mapping class="main.Aluno"/>
     <mapping class="main.Departamento"/>
+    <mapping class="main.SecPosGraduacao"/>
+    <mapping class="main.SecGraduacao"/>
+    
 
 
 

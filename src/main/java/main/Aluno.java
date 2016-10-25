@@ -18,6 +18,12 @@ public class Aluno {
 	
 	private long id;		
 	private Departamento departamentoID;	
+	private int cresdsCumpridos;
+	
+	
+	
+	
+	
 	
 	
 	@Id
@@ -38,6 +44,20 @@ public class Aluno {
 	public void setDepartamentoID(Departamento departamentoID) {
 		this.departamentoID = departamentoID;
 	}
+	
+	
+	@Column(name = "CREDS_CUMPRIDOS")
+	public int getCresdsCumpridos() {
+		return cresdsCumpridos;
+	}
+	public void setCresdsCumpridos(int cresdsCumpridos) {
+		this.cresdsCumpridos = cresdsCumpridos;
+	}
+	
+	
+	
+	
+	
 	
 	
 	
