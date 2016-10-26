@@ -2,6 +2,7 @@ package main;
 
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.swing.text.Position;
@@ -18,48 +19,30 @@ public class Main {
 	public static void main(String[] args) {
 
 		
-		 // loads configuration and mappings
-        Configuration configuration = new Configuration().configure();
-        ServiceRegistryBuilder registry = new ServiceRegistryBuilder();
-        registry.applySettings(configuration.getProperties());
-        ServiceRegistry serviceRegistry = registry.buildServiceRegistry();
-         
-        // builds a session factory from the service registry
-        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-         
-        // obtains the session
-        Session session = sessionFactory.openSession();
+		
+        Session session = HibernateOPS.getSession(); //sessionFactory.openSession();
         session.beginTransaction();
          
         
 		
 		
-		
-		Disciplina disc1 = new Disciplina();
-		disc1.setNome("abxxxxx");
-		disc1.setMinCreditos(10);
-		disc1.setObrigatoria(false);
-		disc1.setOferecida(true);		
-		
-		Departamento dpt = new Departamento();
-		Aluno aln = new Aluno();
-		aln.setNome("zé");
-		aln.setCresdsCumpridos(10);
-		aln.setDepartamentoID(dpt);
-		
-		
-		
-		Set<Aluno> alunos = new HashSet<Aluno>();
-		
-		alunos.add(aln);
-		
-		
+		Secretaria pos = new SecPosGraduacao();
+		Disciplina dc1 = new Disciplina();
+		dc1.setNome("Historia");
+		dc1.setMinCreditos(10);
+		dc1.setObrigatoria(false);
+		dc1.setOferecida(true);
 		Set<Disciplina> disciplinas = new HashSet<Disciplina>();
-		disc1.setAlunos(alunos);
-		disciplinas.add(disc1);		
+		disciplinas.add(dc1);
+		pos.setDisciplinas(disciplinas);		
+		session.save(pos);
+		
+		List<Secretaria> list = session.createCriteria(Secretaria.class).list();         
+           
 		
 		
-		session.save(disc1);
+		
+		
 		session.getTransaction().commit();
 		session.close();
 		

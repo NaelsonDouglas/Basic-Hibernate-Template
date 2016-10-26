@@ -16,8 +16,8 @@ import javax.persistence.Table;
 @Table(name = "SEC_POS_GRADUACAO")
 public class SecPosGraduacao extends Secretaria {
 	
-	private int id;
-	private Set<Disciplina> disciplinas;
+	
+	
 	
 	@Id
 	@Column(name = "SEC_POS_GRADUACAO_ID")
@@ -40,9 +40,7 @@ public class SecPosGraduacao extends Secretaria {
 		return disciplinas;
 	}
 
-	public void setDisciplinas(Set<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
-	}
+	
 	
 	
 	
