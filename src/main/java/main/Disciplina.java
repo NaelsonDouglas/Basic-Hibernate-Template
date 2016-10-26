@@ -1,10 +1,17 @@
 package main;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 
 @Entity
 @Table(name = "DISCIPLINA")
@@ -16,7 +23,7 @@ public class Disciplina {
 	//private Disciplina prerequisitos;
 	private boolean obrigatoria;
 	private boolean oferecida;
-	//private Aluno matriculados;
+	private Set<Aluno>alunos;
 	
 	
 	
@@ -36,6 +43,8 @@ public class Disciplina {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	@Column(name ="MIN_CREDITOS")
 	public int getMinCreditos() {
 		return minCreditos;
 	}
@@ -54,6 +63,25 @@ public class Disciplina {
 	public void setOferecida(boolean oferecida) {
 		this.oferecida = oferecida;
 	}
+	
+	
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "DISCIPLINA_ALUNO",
+            joinColumns = @JoinColumn(name = "DISCIPLINA_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ALUNO_ID")
+    )
+	public Set<Aluno> getAlunos() {
+		return alunos;
+	}
+	public void setAlunos(Set<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+	
+	
+	
+	
+	
 
 	
 	

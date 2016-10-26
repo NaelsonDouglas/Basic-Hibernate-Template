@@ -1,9 +1,15 @@
 package main;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -11,7 +17,7 @@ import javax.persistence.Table;
 public class SecPosGraduacao extends Secretaria {
 	
 	private int id;
-
+	private Set<Disciplina> disciplinas;
 	
 	@Id
 	@Column(name = "SEC_POS_GRADUACAO_ID")
@@ -23,6 +29,23 @@ public class SecPosGraduacao extends Secretaria {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "SEC_POS_GRADUACAO_DISCIPLINA",
+            joinColumns = @JoinColumn(name = "SEC_POS_GRADUACAO_ID"),
+            inverseJoinColumns = @JoinColumn(name = "DISCIPLINA_ID")
+    )
+	public Set<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(Set<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
+	
+	
+	
 	
 	
 }

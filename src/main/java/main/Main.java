@@ -1,9 +1,15 @@
 package main;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.swing.text.Position;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.dialect.PostgresPlusDialect;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
@@ -28,29 +34,38 @@ public class Main {
         
 		System.out.println("ok");
 		
+		Departamento dpt = new Departamento();
+		SecPosGraduacao pos = new SecPosGraduacao();		
+		dpt.setPosGraduacao(pos);
+		
+		
+		Disciplina disc1 = new Disciplina();
+		disc1.setNome("abxxxxx");
+		disc1.setMinCreditos(10);
+		disc1.setObrigatoria(false);
+		disc1.setOferecida(true);
+		
 		
 		
 		Aluno aln = new Aluno();
-		aln.setCresdsCumpridos(500);
-		
-		Departamento dpt = new Departamento();
-		SecPosGraduacao posGrad = new SecPosGraduacao();
-		SecGraduacao grad = new SecGraduacao();
-		dpt.setGraduacao(grad);
-		dpt.setPosGraduacao(posGrad);
-		dpt.setNome("whatever");
-		
-		Professor prof =  new Professor();
-		prof.setNome("Willy");
-		prof.setDepartamentoID(dpt);
-		
-		
+		aln.setNome("zé");
+		session.save(dpt);
 		aln.setDepartamentoID(dpt);
+		aln.setCresdsCumpridos(10);
 		
 		
+		Set<Aluno> alunos = new HashSet<Aluno>();
 		
-		session.save(aln);
-		session.save(prof);
+		alunos.add(aln);
+		
+		disc1.setAlunos(alunos);
+		
+		Set<Disciplina> disciplinas = new HashSet<Disciplina>();
+		disciplinas.add(disc1);		
+		pos.setDisciplinas(disciplinas);
+		
+		
+		session.save(dpt);
 		session.getTransaction().commit();
 		session.close();
 		
