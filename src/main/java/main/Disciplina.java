@@ -64,19 +64,28 @@ public class Disciplina {
 		this.oferecida = oferecida;
 	}
 	
-	
-	@OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "DISCIPLINA_ALUNO",
-            joinColumns = @JoinColumn(name = "DISCIPLINA_ID"),
-            inverseJoinColumns = @JoinColumn(name = "ALUNO_ID")
-    )
-	public Set<Aluno> getAlunos() {
-		return alunos;
-	}
 	public void setAlunos(Set<Aluno> alunos) {
 		this.alunos = alunos;
 	}
+	
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+	        name = "DISCIPLINA_ALUNO",
+	        joinColumns = @JoinColumn(name = "DISCIPLINA_ID"),
+	        inverseJoinColumns = @JoinColumn(name = "ALUNO_ID")
+	)
+	public Set<Aluno> getAlunos() {
+		return alunos;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

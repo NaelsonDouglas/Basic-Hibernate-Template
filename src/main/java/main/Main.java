@@ -32,40 +32,34 @@ public class Main {
         session.beginTransaction();
          
         
-		System.out.println("ok");
 		
-		Departamento dpt = new Departamento();
-		SecPosGraduacao pos = new SecPosGraduacao();		
-		dpt.setPosGraduacao(pos);
 		
 		
 		Disciplina disc1 = new Disciplina();
 		disc1.setNome("abxxxxx");
 		disc1.setMinCreditos(10);
 		disc1.setObrigatoria(false);
-		disc1.setOferecida(true);
+		disc1.setOferecida(true);		
 		
-		
-		
+		Departamento dpt = new Departamento();
 		Aluno aln = new Aluno();
 		aln.setNome("zé");
-		session.save(dpt);
-		aln.setDepartamentoID(dpt);
 		aln.setCresdsCumpridos(10);
+		aln.setDepartamentoID(dpt);
+		
 		
 		
 		Set<Aluno> alunos = new HashSet<Aluno>();
 		
 		alunos.add(aln);
 		
-		disc1.setAlunos(alunos);
 		
 		Set<Disciplina> disciplinas = new HashSet<Disciplina>();
+		disc1.setAlunos(alunos);
 		disciplinas.add(disc1);		
-		pos.setDisciplinas(disciplinas);
 		
 		
-		session.save(dpt);
+		session.save(disc1);
 		session.getTransaction().commit();
 		session.close();
 		
@@ -73,3 +67,4 @@ public class Main {
 	}
 
 }
+
