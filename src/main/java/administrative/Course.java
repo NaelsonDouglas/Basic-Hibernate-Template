@@ -29,6 +29,15 @@ public class Course {
 	public void setClasses(Set<Class> classes) {
 		this.classes = classes;
 	}
+	
+	public String toString(){
+		String output = "";
+		for(Class class_ : classes) {
+			output += class_.toString();
+		}
+		
+		return output;
+	}
 
 }
 
