@@ -5,7 +5,7 @@ import java.util.Set;
 public class Secretary {
 	
 	protected boolean posGrad;
-	Set<Course> courses;
+	protected Set<Course> courses;
 
 	public Secretary(boolean posGrad, Set<Course> courses){
 		this.posGrad = posGrad;
@@ -26,6 +26,12 @@ public class Secretary {
 
 	public void setCourses(Set<Course> courses) {
 		this.courses = courses;
+	}
+	
+	public void report() {
+		for(Course course : courses) {
+			course.report();
+		}
 	}
 
 }
