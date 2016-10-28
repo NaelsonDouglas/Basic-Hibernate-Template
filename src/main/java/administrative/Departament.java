@@ -50,7 +50,7 @@ public class Departament {
 	}
 	
 	void report() {
-		System.out.println(this.name);
+		System.out.println(this.name + ":");
 		System.out.println("Secretaria de graduação:");
 		gradSec.report();
 		System.out.println("Secretaria de pós-graduação:");
