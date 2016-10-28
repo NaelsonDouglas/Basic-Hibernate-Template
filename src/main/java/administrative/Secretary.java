@@ -28,10 +28,13 @@ public class Secretary {
 		this.courses = courses;
 	}
 	
-	public void report() {
+	public String toString() {
+		String output = "";
 		for(Course course : courses) {
-			course.report();
+			output += course.toString();
 		}
+		
+		return output;
 	}
 
 }

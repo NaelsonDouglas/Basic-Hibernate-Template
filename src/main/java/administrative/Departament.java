@@ -49,12 +49,11 @@ public class Departament {
 		this.posGradSec = posGradSec;
 	}
 	
-	void report() {
-		System.out.println(this.name + ":");
-		System.out.println("Secretaria de graduação:");
-		gradSec.report();
-		System.out.println("Secretaria de pós-graduação:");
-		posGradSec.report();
+	public String toString() {
+		String output = this.name + ":\n" + "Secretaria de graduação:\n" + gradSec.toString() +
+				"Secretaria de pós-graduação:\n" + posGradSec.toString();
+		
+		return output;
 	}
 
 }
