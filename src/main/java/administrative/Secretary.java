@@ -1,14 +1,16 @@
 package administrative;
 
+import java.util.HashSet;
 
 public class Secretary
 {
 	
 	protected boolean posGrad;	
-	protected Course courses;
+	HashSet<Course> courses;
 
-	public Secretary(){
-		super();
+	public Secretary(boolean posGrad, HashSet<Course> courses){
+		this.posGrad = posGrad;
+		this.courses = courses;
 	}
 
 	public boolean isPosGrad() {
@@ -19,23 +21,13 @@ public class Secretary
 		this.posGrad = posGrad;
 	}
 
-	public Course getCourses() {
+	public HashSet<Course> getCourses() {
 		return courses;
 	}
 
-	public void setCourses(Course courses) {
+	public void setCourses(HashSet<Course> courses) {
 		this.courses = courses;
 	}
-
-	public Secretary(boolean posGrad, Course courses) {
-		super();
-		this.posGrad = posGrad;
-		this.courses = courses;
-	}
-	
-	
-	
-	
 
 }
 
