@@ -1,32 +1,27 @@
-package model.DRCA.personal;
-import model.DRCA.administrative.Departament;
+package personal;
+import administrative.Departament;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class Teacher
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	protected Departament department;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public Teacher(){
 		super();
 	}
+
+	public Departament getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Departament department) {
+		this.department = department;
+	}
+	
+	
+	
 
 }
 
