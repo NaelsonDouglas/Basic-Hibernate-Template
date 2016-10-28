@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class Secretary {
 	
-	protected boolean posGrad;	
+	protected boolean posGrad;
 	HashSet<Course> courses;
 
 	public Secretary(boolean posGrad, HashSet<Course> courses){
