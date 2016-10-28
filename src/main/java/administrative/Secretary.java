@@ -4,9 +4,7 @@ package administrative;
 public class Secretary
 {
 	
-	protected boolean posGrad;
-
-	
+	protected boolean posGrad;	
 	protected Course courses;
 
 	public Secretary(){
@@ -28,6 +26,14 @@ public class Secretary
 	public void setCourses(Course courses) {
 		this.courses = courses;
 	}
+
+	public Secretary(boolean posGrad, Course courses) {
+		super();
+		this.posGrad = posGrad;
+		this.courses = courses;
+	}
+	
+	
 	
 	
 

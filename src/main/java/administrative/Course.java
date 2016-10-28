@@ -1,14 +1,13 @@
 package administrative;
 
+import java.util.Set;
 
-
-public class Course
-{
+public class Course{
 	
 	protected String name;
 
 	
-	protected Class classes;
+	protected Set<Class> classes;
 
 	public Course(){
 		super();
@@ -22,13 +21,21 @@ public class Course
 		this.name = name;
 	}
 
-	public Class getClasses() {
+	public Set<Class> getClasses() {
 		return classes;
 	}
 
-	public void setClasses(Class classes) {
+	public void setClasses(Set<Class> classes) {
 		this.classes = classes;
 	}
+
+	public Course(String name, Set<Class> classes) {
+		super();
+		this.name = name;
+		this.classes = classes;
+	}
+	
+	
 	
 }
 

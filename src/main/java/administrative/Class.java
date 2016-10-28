@@ -17,7 +17,7 @@ public class Class
 	protected boolean isAvailable;	
 	protected int minCredits;	
 	protected Set<Class> prerequisites;	
-	protected Teacher teacher;	
+	protected String teacher;	
 	protected Set<Student> students;
 	
 	
@@ -144,7 +144,7 @@ public class Class
 
 
 
-	public Teacher getTeacher() {
+	public String getTeacher() {
 		return teacher;
 	}
 
@@ -152,7 +152,7 @@ public class Class
 
 
 
-	public void setTeacher(Teacher teacher) {
+	public void setTeacher(String teacher) {
 		this.teacher = teacher;
 	}
 
@@ -171,6 +171,26 @@ public class Class
 	public void setStudents(Set<Student> students) {
 		this.students = students;
 	}
+
+
+
+
+
+	public Class(String name, String iD, int credits, boolean isElective, boolean isAvailable, int minCredits,
+			Set<Class> prerequisites, String teacher, Set<Student> students) {
+		super();
+		this.name = name;
+		ID = iD;
+		this.credits = credits;
+		this.isElective = isElective;
+		this.isAvailable = isAvailable;
+		this.minCredits = minCredits;
+		this.prerequisites = prerequisites;
+		this.teacher = teacher;
+		this.students = students;
+	}
+	
+	
 	
 
 }

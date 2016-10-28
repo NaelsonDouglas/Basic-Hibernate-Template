@@ -46,7 +46,15 @@ public class Departament
 	public void setPosGradSec(Secretary posGradSec) {
 		this.posGradSec = posGradSec;
 	}
-	
+
+	public Departament(String name, int iD, Secretary gradSec, Secretary posGradSec) {
+		super();
+		this.name = name;
+		ID = iD;
+		this.gradSec = gradSec;
+		this.posGradSec = posGradSec;
+	}
+
 
 }
 
