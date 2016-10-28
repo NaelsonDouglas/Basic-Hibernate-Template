@@ -2,15 +2,16 @@ package administrative;
 
 import java.util.Set;
 
-public class Course{
+public class Course {
 	
 	protected String name;
-
 	
 	protected Set<Class> classes;
 
-	public Course(){
+	public Course(String name, Set<Class> classes) {
 		super();
+		this.name = name;
+		this.classes = classes;
 	}
 
 	public String getName() {
@@ -29,13 +30,5 @@ public class Course{
 		this.classes = classes;
 	}
 
-	public Course(String name, Set<Class> classes) {
-		super();
-		this.name = name;
-		this.classes = classes;
-	}
-	
-	
-	
 }
 
