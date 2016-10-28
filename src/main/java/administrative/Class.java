@@ -22,7 +22,21 @@ public class Class
 	
 	
 	
+	public String toString(){
+		String output="";
+		output = "Nome: "+name+"\n"+"Código: "+ID+"\n"+"Créditos: "+Integer.toString(credits)+"\n"+"Eletiva: "+booleanToSimNao(isElective())+"\n"+
+		"Disponível: "+booleanToSimNao(isAvailable())+"\n"+"Créditos necessários: "+Integer.toString(getMinCredits())+"\n"+"TODO PREREQUISITOS"+"\n"+"Professor: "+getTeacher()+"\n";
+		return output;		
+		
+	}
 	
+	private String booleanToSimNao(boolean bool){
+		if (bool){
+			return "Sim";
+		} else {
+			return "Não";
+		}
+	}
 
 	public Class(){
 		super();
