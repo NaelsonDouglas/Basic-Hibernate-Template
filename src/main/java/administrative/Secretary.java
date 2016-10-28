@@ -2,8 +2,7 @@ package administrative;
 
 import java.util.HashSet;
 
-public class Secretary
-{
+public class Secretary {
 	
 	protected boolean posGrad;	
 	HashSet<Course> courses;

@@ -1,18 +1,20 @@
 package administrative;
 
 
-public class Departament
-{
+public class Departament {
 	
-	protected String name;	
+	protected String name;
 	protected int ID;
-
 	
-	protected Secretary gradSec;	
+	protected Secretary gradSec;
 	protected Secretary posGradSec;
 
-	public Departament(){
+	public Departament(String name, int iD, Secretary gradSec, Secretary posGradSec) {
 		super();
+		this.name = name;
+		ID = iD;
+		this.gradSec = gradSec;
+		this.posGradSec = posGradSec;
 	}
 
 	public String getName() {
@@ -46,15 +48,6 @@ public class Departament
 	public void setPosGradSec(Secretary posGradSec) {
 		this.posGradSec = posGradSec;
 	}
-
-	public Departament(String name, int iD, Secretary gradSec, Secretary posGradSec) {
-		super();
-		this.name = name;
-		ID = iD;
-		this.gradSec = gradSec;
-		this.posGradSec = posGradSec;
-	}
-
 
 }
 
