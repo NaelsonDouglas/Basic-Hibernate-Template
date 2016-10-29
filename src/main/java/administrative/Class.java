@@ -1,5 +1,6 @@
 package administrative;
 import java.awt.List;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +17,7 @@ public class Class {
 	protected int minCredits;	
 	protected Set<Class> prerequisites;	
 	protected String teacher;	
-	protected Set<Student> students;
+	protected ArrayList<Student> students;
 	
 	
 	
@@ -31,7 +32,7 @@ public class Class {
 		this.minCredits = minCredits;
 		this.prerequisites = prerequisites;
 		this.teacher = teacher;
-		this.students = new HashSet<Student>();
+		this.students = new ArrayList<Student>();
 	}
 	
 	
@@ -142,11 +143,11 @@ public class Class {
 		this.teacher = teacher;
 	}
 
-	public Set<Student> getStudents() {
+	public ArrayList<Student> getStudents() {
 		return students;
 	}
 
-	public void setStudents(Set<Student> students) {
+	public void setStudents(ArrayList<Student> students) {
 		this.students = students;
 	}
 

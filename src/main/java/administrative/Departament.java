@@ -1,6 +1,8 @@
 package administrative;
 
+import java.util.ArrayList;
 
+import personal.*;
 public class Departament {
 	
 	protected String name;
@@ -15,6 +17,18 @@ public class Departament {
 		ID = iD;
 		this.gradSec = gradSec;
 		this.posGradSec = posGradSec;
+	}
+	
+	public ArrayList<Student> getStudents(){
+		ArrayList<Student> students = new ArrayList<Student>();
+		
+		
+		students.addAll(gradSec.getStudents());
+		students.addAll(posGradSec.getStudents());
+		
+		
+		return students;
+		
 	}
 	
 	
@@ -65,5 +79,6 @@ public class Departament {
 		return output;
 	}
 
+	
 }
 

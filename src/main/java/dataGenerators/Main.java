@@ -13,8 +13,9 @@ public class Main {
 		departament = Generators.generateDepartments();	
 		
 		
-		System.out.println(departament.get(1).getGradSec().reportIn());
 		
+		ArrayList<Student> students = departament.get(1).getStudents();
+		System.out.println(students.get(1).reportIn());
 		
 	}
 

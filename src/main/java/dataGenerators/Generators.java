@@ -46,7 +46,7 @@ public class Generators {
 		
 		
 		//Cria o set para organizar as matérias de engenharia de computação e adciona as matérias nele
-		Set<Class> engInfoGradClasses = new HashSet<Class>();		
+		ArrayList<Class> engInfoGradClasses = new ArrayList<Class>();		
 		engInfoGradClasses.add(labProgramacao);
 		engInfoGradClasses.add(estruturaDeDados);
 		engInfoGradClasses.add(ProjetoDeSistemaDeSW1);
@@ -67,7 +67,7 @@ public class Generators {
 		
 		
 		//Cria o set para organizar as matérias de bacharelado de computação e adciona as matérias nele
-		Set<Class> bachInfoGradClasses= new HashSet<Class>();
+		ArrayList<Class> bachInfoGradClasses= new ArrayList<Class>();
 		bachInfoGradClasses.add(introCienciaDaComputacao);
 		bachInfoGradClasses.add(calculoNumerico);
 		bachInfoGradClasses.add(softwareBasico);
@@ -80,9 +80,11 @@ public class Generators {
 		
 		//--------------------------organiza todos os cursos de graduação em uma lista----------------------------
 		
-		Set<Course> gradInfoCourses = new HashSet<Course>();
+		ArrayList<Course> gradInfoCourses = new ArrayList<Course>();
 		gradInfoCourses.add(bachareladoComputacao);
 		gradInfoCourses.add(engComputacao);		
+		
+		
 		//---------------------------------------------------------------------------------------------------------
 		
 		//Cria as matérias do doutorado de informática
@@ -90,11 +92,11 @@ public class Generators {
 		
 		
 		//Cria o curso de doutorado em informática
-		Set<Class> doutInfoPosClasses = new HashSet<Class>();
+		ArrayList<Class> doutInfoPosClasses = new ArrayList<Class>();
 		Course doutoradoInfo = new Course("Doutorado - Informática", doutInfoPosClasses);	
 		
 		
-		Set<Course> posGradInfoCourses = new HashSet<Course>();
+		ArrayList<Course> posGradInfoCourses = new ArrayList<Course>();
 		posGradInfoCourses.add(doutoradoInfo);
 		
 		//Cria as duas secratarias de informática, já com os cursos inclusos
@@ -113,7 +115,7 @@ public class Generators {
 		
 		
 		//Cria o set para organizar as matérias de português-inglês e adciona as matériasnele
-		Set<Class> ptrIngGradClasses = new HashSet<Class>();
+		ArrayList<Class> ptrIngGradClasses = new ArrayList<Class>();
 		ptrIngGradClasses.add(inglesI);
 		
 		
@@ -122,13 +124,13 @@ public class Generators {
 		
 		
 		
-		Set<Course> gradLetrasCourses = new HashSet<Course>();
+		ArrayList<Course> gradLetrasCourses = new ArrayList<Course>();
 		gradLetrasCourses.add(ptrIngGrad);
 		
 		
 		//Secretaria de graduação de letras
 		Secretary letrasGrad = new Secretary(false,gradLetrasCourses);
-		Departament deptLetras = new Departament("Letras",1,letrasGrad,null);
+		Departament deptLetras = new Departament("Letras",1,letrasGrad,new Secretary(true, new ArrayList<Course>()));
 
 		
 		departments.add(deptLetras);

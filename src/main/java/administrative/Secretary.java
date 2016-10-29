@@ -1,17 +1,34 @@
 package administrative;
 
+import java.util.ArrayList;
 import java.util.Set;
+
+import personal.Student;
 
 public class Secretary {
 	
 	protected boolean posGrad;
-	protected Set<Course> courses;
+	protected ArrayList<Course> courses;
 
-	public Secretary(boolean posGrad, Set<Course> courses){
+	public Secretary(boolean posGrad, ArrayList<Course> courses){
 		this.posGrad = posGrad;
 		this.courses = courses;
 	}
 
+	
+	public ArrayList<Student> getStudents(){
+		
+		ArrayList<Student> students = new ArrayList<Student>();
+		
+		
+		for (Course i : courses){
+			students.addAll(i.getStudents());
+		}
+		
+		
+		return students;
+		
+	}
 	public boolean isPosGrad() {
 		return posGrad;
 	}
@@ -20,11 +37,11 @@ public class Secretary {
 		this.posGrad = posGrad;
 	}
 
-	public Set<Course> getCourses() {
+	public ArrayList<Course> getCourses() {
 		return courses;
 	}
 
-	public void setCourses(Set<Course> courses) {
+	public void setCourses(ArrayList<Course> courses) {
 		this.courses = courses;
 	}
 	
