@@ -1,5 +1,6 @@
 package administrative;
 import java.awt.List;
+import java.util.HashSet;
 import java.util.Set;
 
 import personal.Student;
@@ -17,8 +18,11 @@ public class Class {
 	protected String teacher;	
 	protected Set<Student> students;
 	
+	
+	
+	
 	public Class(String name, String iD, int credits, boolean isElective, boolean isAvailable, int minCredits,
-			Set<Class> prerequisites, String teacher, Set<Student> students) {
+			Set<Class> prerequisites, String teacher) {
 		this.name = name;
 		ID = iD;
 		this.credits = credits;
@@ -27,13 +31,41 @@ public class Class {
 		this.minCredits = minCredits;
 		this.prerequisites = prerequisites;
 		this.teacher = teacher;
-		this.students = students;
+		this.students = new HashSet<Student>();
+	}
+	
+	
+	public boolean enroll(Student student){
+		if (isAvailable){
+			System.out.println("Disciplina não disponível\n");
+			return false;
+		}
+		
+		if (student.getCredits() < minCredits){
+			System.out.println("Aluno não tem os requisitos mínimos para ingressar na disciplina\nAluno possui "+Integer.toString(student.getCredits())+"créditos"+"\n"+
+		"E o mínimo da disciplina é de "+getMinCredits());
+			return false;
+		}
+		
+		students.add(student);
+		student.addClass(getName());
+		System.out.println("Aluno matriculado com sucesso\n\n");	
+		
+		return true;
+	}
+
+	public String reportIn(){
+		if(isAvailable()){
+			return toString();
+		} else {
+			return "";
+		}
 	}
 	
 	public String toString(){
 		String output = "";
 		output = "Nome: " + name + "\n" + "Código: " + ID + "\n" + "Créditos: " + Integer.toString(credits) + "\n" + "Eletiva: " + booleanToSimNao(isElective()) + "\n" +
-		"Disponível: " + booleanToSimNao(isAvailable()) + "\n" + "Créditos necessários: " + Integer.toString(getMinCredits()) + "\n"+"TODO PREREQUISITOS" + "\n" + "Professor: " + getTeacher() + "\n";
+		"Disponível: " + booleanToSimNao(isAvailable()) + "\n" + "Créditos necessários: " + Integer.toString(getMinCredits()) + "\n"+"TODO PREREQUISITOS" + "\n" + "Professor: " + getTeacher() + "\n\n";
 		return output;		
 		
 	}

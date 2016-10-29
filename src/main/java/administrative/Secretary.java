@@ -28,6 +28,16 @@ public class Secretary {
 		this.courses = courses;
 	}
 	
+	
+	public String reportIn(){
+		String output = "";
+		for(Course course : courses) {
+			output += course.reportIn();
+		}
+		
+		return output;
+		
+	}
 	public String toString() {
 		String output = "";
 		for(Course course : courses) {

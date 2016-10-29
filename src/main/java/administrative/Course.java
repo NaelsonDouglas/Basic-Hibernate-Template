@@ -30,6 +30,18 @@ public class Course {
 		this.classes = classes;
 	}
 	
+	
+	public String reportIn(){
+		String output = "";
+		for(Class class_ : classes) {
+			output += class_.reportIn();
+		}
+		
+		return output;
+		
+	}
+	
+	
 	public String toString(){
 		String output = "";
 		for(Class class_ : classes) {

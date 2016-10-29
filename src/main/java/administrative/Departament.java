@@ -16,6 +16,15 @@ public class Departament {
 		this.gradSec = gradSec;
 		this.posGradSec = posGradSec;
 	}
+	
+	
+	public String reportGradIn(){
+		return gradSec.reportIn();
+	}
+	
+	public String reportPosGradIn(){
+		return posGradSec.reportIn();
+	}
 
 	public String getName() {
 		return name;
@@ -50,8 +59,8 @@ public class Departament {
 	}
 	
 	public String toString() {
-		String output = this.name + ":\n" + "Secretaria de graduação:\n" + gradSec.toString() +
-				"Secretaria de pós-graduação:\n" + posGradSec.toString();
+		String output = this.name + ":\n" + "Secretaria de graduaï¿½ï¿½o:\n" + gradSec.toString() +
+				"Secretaria de pï¿½s-graduaï¿½ï¿½o:\n" + posGradSec.toString();
 		
 		return output;
 	}

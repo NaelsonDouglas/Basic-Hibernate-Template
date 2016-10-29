@@ -3,10 +3,27 @@ package personal;
 
 public class Person{
 	
-	protected String name;
+	protected String name;	
+	protected int ID;
 
 	
-	protected int ID;
+	
+	public String reportIn(){
+		String output = "";
+		output = "Nome: "+name+"\n"+"Matrícula: "+Integer.toString(ID)+"\n";	
+		
+		return output;
+	}
+	
+	
+	
+	public Person(String name, int iD) {
+		super();
+		this.name = name;
+		ID = iD;
+	}
+
+
 
 	public Person(){
 		super();
