@@ -10,6 +10,7 @@ public class Departament {
 	
 	protected Secretary gradSec;
 	protected Secretary posGradSec;
+	protected ArrayList<Student> students;
 
 	public Departament(String name, int iD, Secretary gradSec, Secretary posGradSec) {
 		super();
@@ -17,6 +18,19 @@ public class Departament {
 		ID = iD;
 		this.gradSec = gradSec;
 		this.posGradSec = posGradSec;
+		
+		this.gradSec.setDepartment(this);
+		this.posGradSec.setDepartment(this);
+		students = new ArrayList<Student>();
+	}
+	
+	
+	public Student pickStudent(int i){
+		if (i < 0 || i >= students.size()){
+			System.out.println("Número inválido\n");
+			return null;
+		}
+		return students.get(i);
 	}
 	
 	public ArrayList<Student> getStudents(){
@@ -29,6 +43,20 @@ public class Departament {
 		
 		return students;
 		
+	}
+	
+	public boolean register(Student student){
+		String studentName = student.getName();
+		
+		for (Student i : students){
+			if (studentName.equals(i.getName())){
+				System.out.println("Aluno já possui matrícula\n");
+				return false;
+			}
+		}
+		
+		students.add(student);
+		return true;
 	}
 	
 	

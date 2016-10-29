@@ -105,6 +105,11 @@ public class Generators {
 		
 		//Cria o departamento de informática
 		Departament deptInfo = new Departament("Informática",0,gradInfo,posGradInfo);
+		deptInfo.register(alexCarvalho);
+		deptInfo.register(jurema);
+		deptInfo.register(joseVasconcelos);
+		deptInfo.register(joaoDaSilva);
+		labProgramacao.enroll(alexCarvalho);
 		
 		
 		
@@ -131,12 +136,13 @@ public class Generators {
 		//Secretaria de graduação de letras
 		Secretary letrasGrad = new Secretary(false,gradLetrasCourses);
 		Departament deptLetras = new Departament("Letras",1,letrasGrad,new Secretary(true, new ArrayList<Course>()));
-
+		Student mariaAntonia = new Student("Maria antônia", 12398,0);
+		deptLetras.register(mariaAntonia);
 		
 		departments.add(deptLetras);
 		departments.add(deptInfo);	
 		
-		Student mariaAntonia = new Student("Maria antônia", 12398,0);
+		
 		
 		
 		//-----------------------------------Alunos----------------------------------------------------

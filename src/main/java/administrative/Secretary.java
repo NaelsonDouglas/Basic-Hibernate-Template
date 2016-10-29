@@ -9,10 +9,15 @@ public class Secretary {
 	
 	protected boolean posGrad;
 	protected ArrayList<Course> courses;
+	protected Departament department;
 
 	public Secretary(boolean posGrad, ArrayList<Course> courses){
 		this.posGrad = posGrad;
 		this.courses = courses;
+		
+		for (Course i: courses){
+			i.setSecretary(this);
+		}
 	}
 
 	
@@ -40,6 +45,18 @@ public class Secretary {
 	public ArrayList<Course> getCourses() {
 		return courses;
 	}
+	
+	
+
+	public Departament getDepartment() {
+		return department;
+	}
+
+
+	public void setDepartment(Departament department) {
+		this.department = department;
+	}
+
 
 	public void setCourses(ArrayList<Course> courses) {
 		this.courses = courses;

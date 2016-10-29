@@ -15,6 +15,7 @@ public class Class {
 	protected boolean isElective;	
 	protected boolean isAvailable;	
 	protected int minCredits;	
+	protected Course course;
 	protected Set<Class> prerequisites;	
 	protected String teacher;	
 	protected ArrayList<Student> students;
@@ -37,13 +38,22 @@ public class Class {
 	
 	
 	public boolean enroll(Student student){
-		if (isAvailable){
+		
+		for (String i : student.getClasses()){
+			if (this.name.equals(i)){
+				return false;
+			}
+		}
+		
+		
+		System.out.println(name);
+		if (!this.isAvailable){
 			System.out.println("Disciplina não disponível\n");
 			return false;
 		}
 		
 		if (student.getCredits() < minCredits){
-			System.out.println("Aluno não tem os requisitos mínimos para ingressar na disciplina\nAluno possui "+Integer.toString(student.getCredits())+"créditos"+"\n"+
+			System.out.println("Aluno"+student.getName()+" não tem os requisitos mínimos para ingressar na disciplina\nAluno possui "+Integer.toString(student.getCredits())+"créditos"+"\n"+
 		"E o mínimo da disciplina é de "+getMinCredits());
 			return false;
 		}
@@ -86,6 +96,18 @@ public class Class {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
+
+	public Course getCourse() {
+		return course;
+	}
+
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
 
 	public String getID() {
 		return ID;

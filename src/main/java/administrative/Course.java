@@ -9,6 +9,7 @@ import personal.Student;
 public class Course {
 	
 	protected String name;
+	protected Secretary secretary;
 	
 	protected ArrayList<Class> classes;
 
@@ -16,13 +17,31 @@ public class Course {
 		super();
 		this.name = name;
 		this.classes = classes;
+		
+		for (Class i: classes){
+			i.setCourse(this);
+		}
 	}
 
 	public String getName() {
 		return name;
 	}
+	
+	
 
 	
+	public Secretary getSecretary() {
+		return secretary;
+	}
+
+	public void setSecretary(Secretary secretary) {
+		this.secretary = secretary;
+	}
+
+	public void setClasses(ArrayList<Class> classes) {
+		this.classes = classes;
+	}
+
 	public ArrayList<Student> getStudents(){
 		ArrayList<Student> students = new ArrayList<Student>();
 		
@@ -43,9 +62,6 @@ public class Course {
 		return classes;
 	}
 
-	public void setClasses(ArrayList classes) {
-		this.classes = classes;
-	}
 	
 	
 	public String reportIn(){

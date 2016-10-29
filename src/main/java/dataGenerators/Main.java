@@ -8,14 +8,17 @@ import personal.Student;
 public class Main {
 
 	public static void main(String[] args) {
-		ArrayList<Departament>departament = new ArrayList<Departament>();
+		ArrayList<Departament>departaments = new ArrayList<Departament>();
 		
-		departament = Generators.generateDepartments();	
+		departaments = Generators.generateDepartments();	
+		
+		
+		System.out.println(departaments.get(1).pickStudent(2).reportIn());
 		
 		
 		
-		ArrayList<Student> students = departament.get(1).getStudents();
-		System.out.println(students.get(1).reportIn());
+		ArrayList<Student> students = departaments.get(0).getStudents();
+		System.out.println(students.size());
 		
 	}
 

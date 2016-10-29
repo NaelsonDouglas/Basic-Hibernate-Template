@@ -17,7 +17,7 @@ public class Student extends Person
 	public String reportIn(){
 		String output = "";
 		output = super.reportIn();
-		output = output+"Curso: "+course+"\n"+"DISCIPLINAS MATRICULADO:\n";
+		output = output+"Curso: "+course+"\n"+"DISCIPLINAS COM MATRÌCULA:\n";
 		
 		for (int i=0; i<classes.size(); i++){
 			output=output+classes.get(i)+"\n";
