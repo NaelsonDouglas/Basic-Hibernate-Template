@@ -27,8 +27,22 @@ public class Course {
 		return name;
 	}
 	
+	public boolean listClasses(){
+		for (int i=0; i<classes.size(); i++){
+			System.out.println(i+" - "+classes.get(i).getName());			
+		}
+		return true;
+	}
 	
-
+	public Class pickClass(int selector){
+		return classes.get(selector);
+	}
+	
+	
+	public boolean enroll(Student student){		
+		student.setCourse(this);		
+		return true;
+	}
 	
 	public Secretary getSecretary() {
 		return secretary;

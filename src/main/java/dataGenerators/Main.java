@@ -34,6 +34,8 @@ public class Main {
 				int innerSelector = readInt(0, numberOfStudents) ;
 				Student student = department.pickStudent(innerSelector);
 				
+				student.getDepartment().enroll(student);
+				
 				
 				
 				

@@ -3,6 +3,7 @@ package administrative;
 import java.util.ArrayList;
 import java.util.Set;
 
+import dataGenerators.Main;
 import personal.Student;
 
 public class Secretary {
@@ -19,7 +20,24 @@ public class Secretary {
 			i.setSecretary(this);
 		}
 	}
-
+	
+	
+	public boolean enroll(Student student){
+		for (int i=0; i<courses.size(); i++){
+			System.out.println(i+" - "+courses.get(i).getName());
+		}
+		int selector = Main.readInt(0, courses.size()-1);
+		Course course = pickCourse(selector);
+		course.listClasses();
+		selector = Main.readInt(0, course.getClasses().size()-1);
+		course.pickClass(selector).enroll(student);		
+		
+		return true;
+	}
+	
+	public Course pickCourse(int selector){
+		return courses.get(selector);
+	}
 	
 	public ArrayList<Student> getStudents(){
 		

@@ -27,7 +27,12 @@ public class Departament {
 	
 	
 	public boolean enroll(Student student){
-		
+		if (student.isPosGrad()){
+			posGradSec.enroll(student);
+		} else {
+			gradSec.enroll(student);
+		}
+		return true;
 	}
 	
 	
@@ -80,6 +85,7 @@ public class Departament {
 			student.setID(studentID);
 			students.add(student);		
 		}
+		student.setDepartament(this);
 		System.out.println("Aluno "+student.getName()+" registrado(a) com a matrícula: "+student.getID());
 		return true;
 	}

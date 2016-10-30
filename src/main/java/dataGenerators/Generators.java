@@ -40,7 +40,11 @@ public class Generators {
 		engInfoGradClasses.add(programacaoEmPontoGrande);
 		
 		//Cria o curso de engenharia de computação com as matérias		
-		Course engComputacao = new Course("Engenharia de computação", engInfoGradClasses);		
+		Course engComputacao = new Course("Engenharia de computação", engInfoGradClasses);	
+		
+		engComputacao.enroll(alexCarvalho);
+		engComputacao.enroll(jurema);
+		
 		//---------------------------------------------------------------------------------------------------------
 		
 		
@@ -60,6 +64,7 @@ public class Generators {
 		
 		//Cria o curso de engenharia de computação com as matérias		
 		Course bachareladoComputacao = new Course("Engenharia de computação", bachInfoGradClasses);	
+		bachareladoComputacao.enroll(joseVasconcelos);
 		
 			
 		//--------------------------organiza todos os cursos de graduação em uma lista----------------------------
@@ -78,6 +83,7 @@ public class Generators {
 		//Cria o curso de doutorado em informática
 		ArrayList<Class> doutInfoPosClasses = new ArrayList<Class>();
 		Course doutoradoInfo = new Course("Doutorado - Informática", doutInfoPosClasses);	
+		doutoradoInfo.enroll(joaoDaSilva);
 		
 		
 		ArrayList<Course> posGradInfoCourses = new ArrayList<Course>();
@@ -122,7 +128,7 @@ public class Generators {
 		Departament deptLetras = new Departament("Letras",2,letrasGrad,new Secretary(true, new ArrayList<Course>()));		
 		Student mariaAntonia = new Student("Maria antônia", 12398,false,0);
 		deptLetras.register(mariaAntonia);
-		
+		ptrIngGrad.enroll(mariaAntonia);
 		departments.add(deptLetras);
 		departments.add(deptInfo);	
 		

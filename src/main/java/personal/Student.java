@@ -5,13 +5,17 @@ import java.util.Set;
 
 import administrative.Class;
 import administrative.Course;
+import administrative.Departament;
+import administrative.Secretary;
 import dataGenerators.Main;
 
 
 public class Student extends Person
 {
 	
-	protected String course;	
+	protected Course course;	
+	protected Departament department;
+	protected Secretary secretary;
 	protected int credits;	
 	protected boolean posGrad;
 	protected ArrayList<String> classes;
@@ -20,7 +24,7 @@ public class Student extends Person
 	public String reportIn(){
 		String output = "";
 		output = super.reportIn();
-		output = output+"Curso: "+course+"\n"+"DISCIPLINAS COM MATRÌCULA:\n";
+		output = output+"Curso: "+course.getName()+"\n"+"DISCIPLINAS COM MATRÌCULA:\n";
 		
 		for (int i=0; i<classes.size(); i++){
 			output=output+classes.get(i)+"\n";
@@ -34,6 +38,9 @@ public class Student extends Person
 		classes.add(className);
 		return true;
 	}
+	
+	
+	
 	
 	public static  Student registerStudent(){
 		Scanner scan = new Scanner(System.in);
@@ -53,7 +60,7 @@ public class Student extends Person
 	
 	public Student(String name, int id, boolean poGrad,int credits) {
 		super(name,id);
-		this.course = "";
+		this.course = null;
 		this.credits = credits;
 		this.classes = new ArrayList<String>();
 		this.ID = -1;
@@ -68,11 +75,11 @@ public class Student extends Person
 		super();
 	}
 
-	public String getCourse() {
+	public Course getCourse() {
 		return course;
 	}
 
-	public void setCourse(String course) {
+	public void setCourse(Course course) {
 		this.course = course;
 	}
 
@@ -101,6 +108,17 @@ public class Student extends Person
 	public void setPosGrad(boolean posGrad) {
 		this.posGrad = posGrad;
 	}
+
+
+	public Departament getDepartment() {
+		return department;
+	}
+
+
+	public void setDepartament(Departament department) {
+		this.department = department;
+	}
+	
 	
 	
 	
