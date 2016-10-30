@@ -51,5 +51,10 @@
 		<!--
 			* End of user code for dependencies
 		  -->
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>1.6.5</version>
+		</dependency>
 	</dependencies>
 </project>
