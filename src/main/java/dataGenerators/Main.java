@@ -16,6 +16,7 @@ public class Main {
 		
 		while(true){
 			int selector = -1;
+			int innerSelector = -1;
 			System.out.println("---------------------------------");
 			
 			System.out.println("---------------------------------");
@@ -31,14 +32,24 @@ public class Main {
 			} else if (selector == 2){
 				Departament department = pickDepartment();
 				int numberOfStudents = department.listStudents();
-				int innerSelector = readInt(0, numberOfStudents) ;
+				innerSelector = readInt(0, numberOfStudents) ;
 				Student student = department.pickStudent(innerSelector);
 				
-				student.getDepartment().enroll(student);
-				
-				
-				
-				
+				student.getDepartment().enroll(student);				
+			} else if (selector == 3){
+				System.out.println("1 Lista por departamento");
+				System.out.println("2 Lista por departamento");
+				innerSelector = readInt(1, 2);
+				if (innerSelector == 1){
+					for (Departament i: departaments){
+						System.out.println("_____________________________________");
+						System.out.println("Departamento :"+i.getName());
+						System.out.println("________________Graduação_________________");
+						System.out.println(i.reportGradIn());
+						System.out.println("________________Pos-Graduação_____________");
+						System.out.println(i.reportPosGradIn());
+					}
+				}
 			}
 			
 			

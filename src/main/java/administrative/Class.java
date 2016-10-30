@@ -16,31 +16,43 @@ public class Class {
 	protected boolean isAvailable;	
 	protected int minCredits;	
 	protected Course course;
-	protected Set<Class> prerequisites;	
+	protected ArrayList<Class> prerequisites;	
 	protected String teacher;	
 	protected ArrayList<Student> students;
 	
 	
 	
 	
-	public Class(String name, String iD, int credits, boolean isElective, boolean isAvailable, int minCredits,
-			Set<Class> prerequisites, String teacher) {
+	public Class(String name, String iD, int credits, boolean isElective, boolean isAvailable, int minCredits, String teacher) {
 		this.name = name;
 		ID = iD;
 		this.credits = credits;
 		this.isElective = isElective;
 		this.isAvailable = isAvailable;
 		this.minCredits = minCredits;
-		this.prerequisites = prerequisites;
+		this.prerequisites = new ArrayList<Class>();
 		this.teacher = teacher;
 		this.students = new ArrayList<Student>();
 	}
 	
+	public boolean addPreRequisite(Class requisite){
+		prerequisites.add(requisite);
+		return true;
+	}
+	
+	public String listRequisites(){
+		String output = "|";
+		for (Class i: prerequisites){
+			output = output+i.getID()+"| ";
+		}
+		return output;
+	}
 	
 	public boolean enroll(Student student){
 		
 		for (String i : student.getClasses()){
 			if (this.name.equals(i)){
+				System.out.println("Aluno(a) já está matriculado(a) na disciplina");
 				return false;
 			}
 		}
@@ -75,8 +87,13 @@ public class Class {
 	
 	public String toString(){
 		String output = "";
+		String studentsList ="";
+		for (Student i:students){
+			studentsList = studentsList+i.getName()+" | ";
+		}
 		output = "Nome: " + name + "\n" + "Código: " + ID + "\n" + "Créditos: " + Integer.toString(credits) + "\n" + "Eletiva: " + booleanToSimNao(isElective()) + "\n" +
-		"Disponível: " + booleanToSimNao(isAvailable()) + "\n" + "Créditos necessários: " + Integer.toString(getMinCredits()) + "\n"+"TODO PREREQUISITOS" + "\n" + "Professor: " + getTeacher() + "\n\n";
+		"Disponível: " + booleanToSimNao(isAvailable()) + "\n" + "Créditos necessários: " + Integer.toString(getMinCredits()) + "\n"+"Pre-requisitos: "+listRequisites() +
+		"\n" + "Professor: " + getTeacher() + "\n"+"Matriculado(a)s: "+studentsList+"\n\n";
 		return output;		
 		
 	}
@@ -149,11 +166,11 @@ public class Class {
 		this.minCredits = minCredits;
 	}
 
-	public Set<Class> getPrerequisites() {
+	public ArrayList<Class> getPrerequisites() {
 		return prerequisites;
 	}
 
-	public void setPrerequisites(Set<Class> prerequisites) {
+	public void setPrerequisites(ArrayList<Class> prerequisites) {
 		this.prerequisites = prerequisites;
 	}
 
