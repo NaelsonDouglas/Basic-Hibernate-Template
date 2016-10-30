@@ -38,7 +38,7 @@ public class Main {
 				student.getDepartment().enroll(student);				
 			} else if (selector == 3){
 				System.out.println("1 Lista por departamento");
-				System.out.println("2 Lista por departamento");
+				System.out.println("2 Informações sobre aluno");
 				innerSelector = readInt(1, 2);
 				if (innerSelector == 1){
 					for (Departament i: departaments){
@@ -49,6 +49,18 @@ public class Main {
 						System.out.println("________________Pos-Graduação_____________");
 						System.out.println(i.reportPosGradIn());
 					}
+				} else if (innerSelector == 2){
+					Departament department = pickDepartment();
+					if(department.hasStudents()){
+						Student student = department.pickStudent();
+						System.out.println(student.reportIn());
+					} else {
+						System.out.println("Departamento não possui alunos registrados");
+					}
+					
+					
+					
+					
 				}
 			}
 			

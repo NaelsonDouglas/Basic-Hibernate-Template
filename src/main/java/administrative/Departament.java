@@ -2,6 +2,7 @@ package administrative;
 
 import java.util.ArrayList;
 
+import dataGenerators.Main;
 import personal.*;
 public class Departament {
 	
@@ -35,7 +36,20 @@ public class Departament {
 		return true;
 	}
 	
+	public Student pickStudent(){
+		listStudents();
+		int selector = Main.readInt(0, students.size());
+		return students.get(selector);		
+		
+	}
 	
+	public boolean hasStudents(){
+		if (students.size()>0){
+			return true;
+		}
+		
+		return false;
+	}
 	public Student pickStudent(int i){
 		if (i < 0 || i >= students.size()){
 			System.out.println("Número inválido\n");

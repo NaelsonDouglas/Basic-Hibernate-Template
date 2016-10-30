@@ -36,7 +36,8 @@ public class Generators {
 		
 		labProgramacao.enroll(alexCarvalho);
 		estruturaDeDados.enroll(alexCarvalho);
-		estruturaDeDados.enroll(jurema);		
+		estruturaDeDados.enroll(jurema);	
+		
 		
 		
 		//Cria o set para organizar as matérias de engenharia de computação e adciona as matérias nele
@@ -91,6 +92,7 @@ public class Generators {
 		
 		//Cria o curso de doutorado em informática
 		ArrayList<Class> doutInfoPosClasses = new ArrayList<Class>();
+		doutInfoPosClasses.add(hipermidiaAdaptativa);
 		Course doutoradoInfo = new Course("Doutorado - Informática", doutInfoPosClasses);	
 		doutoradoInfo.enroll(joaoDaSilva);
 		
