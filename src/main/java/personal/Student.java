@@ -1,9 +1,11 @@
 package personal;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Set;
 
 import administrative.Class;
 import administrative.Course;
+import dataGenerators.Main;
 
 
 public class Student extends Person
@@ -11,6 +13,7 @@ public class Student extends Person
 	
 	protected String course;	
 	protected int credits;	
+	protected boolean posGrad;
 	protected ArrayList<String> classes;
 	
 	
@@ -32,11 +35,29 @@ public class Student extends Person
 		return true;
 	}
 	
-	public Student(String name, int id, int credits) {
+	public static  Student registerStudent(){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Nome: ");
+		String name = scan.next();
+		System.out.println("1 - Graduando \n 2 - Pos-Graduando");
+		boolean grad = false;
+		int selector = Main.readInt(1,2);		
+		if (selector == 1){
+			grad = true;
+		} else {
+			grad = false;
+		}
+		Student newStudent = new Student(name,1,grad,0);
+		return newStudent;
+	}
+	
+	public Student(String name, int id, boolean poGrad,int credits) {
 		super(name,id);
 		this.course = "";
 		this.credits = credits;
 		this.classes = new ArrayList<String>();
+		this.ID = -1;
+		this.posGrad = posGrad;
 		
 	}
 
@@ -70,6 +91,18 @@ public class Student extends Person
 	public void setClasses(ArrayList<String> classes) {
 		this.classes = classes;
 	}
+
+
+	public boolean isPosGrad() {
+		return posGrad;
+	}
+
+
+	public void setPosGrad(boolean posGrad) {
+		this.posGrad = posGrad;
+	}
+	
+	
 	
 	
 

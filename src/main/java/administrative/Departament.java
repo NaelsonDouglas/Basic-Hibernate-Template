@@ -22,6 +22,12 @@ public class Departament {
 		this.gradSec.setDepartment(this);
 		this.posGradSec.setDepartment(this);
 		students = new ArrayList<Student>();
+		
+	}
+	
+	
+	public boolean enroll(Student student){
+		
 	}
 	
 	
@@ -45,6 +51,14 @@ public class Departament {
 		
 	}
 	
+	
+	public int listStudents(){
+		for (int i=0; i<students.size(); i++){
+			System.out.println(i+" - "+students.get(i).getName());
+		}
+		return students.size();
+	}
+	
 	public boolean register(Student student){
 		String studentName = student.getName();
 		
@@ -55,7 +69,18 @@ public class Departament {
 			}
 		}
 		
-		students.add(student);
+		if (student.getID() == -1){
+			String deptID =  Integer.toString(this.ID);		
+			int studentID = Integer.parseInt(deptID+"0");		
+			
+			if (students.size() > 0){
+				String lastStudentID = Integer.toString(this.students.size()); 
+				studentID = Integer.parseInt(deptID+lastStudentID);
+			}
+			student.setID(studentID);
+			students.add(student);		
+		}
+		System.out.println("Aluno "+student.getName()+" registrado(a) com a matrícula: "+student.getID());
 		return true;
 	}
 	

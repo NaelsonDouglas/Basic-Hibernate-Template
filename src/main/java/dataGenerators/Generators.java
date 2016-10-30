@@ -12,37 +12,24 @@ public class Generators {
 	
 	
 	public static ArrayList<Departament> generateDepartments(){		
-		ArrayList<Departament>  departments = new ArrayList<Departament>();
-		
-		
-		
+		ArrayList<Departament>  departments = new ArrayList<Departament>();	
 		
 		
 		//Cria as matérias de engenharia de computação
 		Class labProgramacao = new Class("Laboratório de programação I", "INF 1622",70,false,true,0,null,"Arndt Von Staa");
 		Class estruturaDeDados = new Class("Esturtura de Dados","INF 1620",60,false,false,0,null,"Marcus Poggi");
 		Class ProjetoDeSistemaDeSW1 = new Class("Projeto de sistema de Software I","INF 1624",40,true,true,0,null,"Carlos Lucena");
-		Class programacaoEmPontoGrande = new Class("Programação em Ponto Grande", "INF 1628",50,true,true,0,null,"Arndt von Staa");
+		Class programacaoEmPontoGrande = new Class("Programação em Ponto Grande", "INF 1628",50,true,true,0,null,"Arndt von Staa");		
 		
-		
-		
-		
-		Student alexCarvalho = new Student("Alex Carvalho",98124812, 130);		
-		Student jurema = new Student("Jurema Torres",9924812, 100);	
-		Student joseVasconcelos = new Student("José Vasconcelos",9915918, 0);		
-		Student joaoDaSilva = new Student("João da Silva",9914918, 0);
+		Student alexCarvalho = new Student("Alex Carvalho",98124812,false, 130);		
+		Student jurema = new Student("Jurema Torres",9924812,false, 100);	
+		Student joseVasconcelos = new Student("José Vasconcelos",9915918,false, 0);		
+		Student joaoDaSilva = new Student("João da Silva",9914918,false, 0);
 		
 		
 		labProgramacao.enroll(alexCarvalho);
 		estruturaDeDados.enroll(alexCarvalho);
-		estruturaDeDados.enroll(jurema);
-		
-		
-		
-		
-		
-		
-		
+		estruturaDeDados.enroll(jurema);		
 		
 		
 		//Cria o set para organizar as matérias de engenharia de computação e adciona as matérias nele
@@ -55,8 +42,6 @@ public class Generators {
 		//Cria o curso de engenharia de computação com as matérias		
 		Course engComputacao = new Course("Engenharia de computação", engInfoGradClasses);		
 		//---------------------------------------------------------------------------------------------------------
-				
-		
 		
 		
 		//Cria Matérias do curso de bacharelado de computação
@@ -76,8 +61,7 @@ public class Generators {
 		//Cria o curso de engenharia de computação com as matérias		
 		Course bachareladoComputacao = new Course("Engenharia de computação", bachInfoGradClasses);	
 		
-		
-		
+			
 		//--------------------------organiza todos os cursos de graduação em uma lista----------------------------
 		
 		ArrayList<Course> gradInfoCourses = new ArrayList<Course>();
@@ -104,7 +88,7 @@ public class Generators {
 		Secretary posGradInfo = new Secretary(true,posGradInfoCourses);
 		
 		//Cria o departamento de informática
-		Departament deptInfo = new Departament("Informática",0,gradInfo,posGradInfo);
+		Departament deptInfo = new Departament("Informática",1,gradInfo,posGradInfo);
 		deptInfo.register(alexCarvalho);
 		deptInfo.register(jurema);
 		deptInfo.register(joseVasconcelos);
@@ -135,8 +119,8 @@ public class Generators {
 		
 		//Secretaria de graduação de letras
 		Secretary letrasGrad = new Secretary(false,gradLetrasCourses);
-		Departament deptLetras = new Departament("Letras",1,letrasGrad,new Secretary(true, new ArrayList<Course>()));
-		Student mariaAntonia = new Student("Maria antônia", 12398,0);
+		Departament deptLetras = new Departament("Letras",2,letrasGrad,new Secretary(true, new ArrayList<Course>()));		
+		Student mariaAntonia = new Student("Maria antônia", 12398,false,0);
 		deptLetras.register(mariaAntonia);
 		
 		departments.add(deptLetras);
