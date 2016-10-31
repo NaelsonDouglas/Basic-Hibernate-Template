@@ -10,15 +10,16 @@ public class Teacher
 
 	public Teacher(){
 		super();
+		department=null;
 	}
 
 	public Departament getDepartment() {
 		return department;
 	}
+	
+	
 
-	public void setDepartment(Departament department) {
-		this.department = department;
-	}
+
 	
 	
 	

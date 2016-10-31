@@ -3,6 +3,9 @@ package administrative;
 import java.util.ArrayList;
 import java.util.Set;
 
+import org.junit.Ignore;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
+
 import dataGenerators.Main;
 import personal.Student;
 
@@ -20,6 +23,8 @@ public class Secretary {
 			i.setSecretary(this);
 		}
 	}
+	
+	
 	
 	
 	public boolean enroll(Student student){

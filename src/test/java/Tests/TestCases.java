@@ -2,7 +2,10 @@ package Tests;
 
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,8 +18,11 @@ import administrative.Class;
 import administrative.Course;
 import administrative.Departament;
 import administrative.Secretary;
+import dataGenerators.Generators;
+import dataGenerators.Main;
 import personal.Person;
 import personal.Student;
+import personal.Teacher;
 
 public class TestCases {
 	
@@ -46,8 +52,8 @@ public class TestCases {
 	}
 
 	@Test
-	public void enrollTest() {
-		System.out.println("Teste de matrícula em uma disciplina:");
+	public void classEnrollTest() {
+		System.out.println("Teste de matrï¿½cula em uma disciplina:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
 		
@@ -55,12 +61,14 @@ public class TestCases {
 		
 		ArrayList<Student> students = Whitebox.getInternalState(estruturaDeDados, "students");
 		
-		assertEquals("Aluno não encontrado.", student, students.get(0));
+		assertEquals("Aluno nï¿½o encontrado.", student, students.get(0));
 	}
 	
+	
+	
 	@Test
-	public void enrollTest2(){
-		System.out.println("\nTeste de matrícula com créditos insuficientes:");
+	public void classEnrollTest2(){
+		System.out.println("\nTeste de matrï¿½cula com crï¿½ditos insuficientes:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 30, "Marcus Poggi");
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
 		
@@ -70,8 +78,8 @@ public class TestCases {
 	}
 	
 	@Test
-	public void enrollTest3(){
-		System.out.println("\nTeste de matrícula de um aluno já matriculado:");
+	public void ClassenrollTest3(){
+		System.out.println("\nTeste de matrï¿½cula de um aluno jï¿½ matriculado:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
 		
@@ -83,8 +91,8 @@ public class TestCases {
 	}
 	
 	@Test
-	public void enrollTest4(){
-		System.out.println("\nTeste de matrícula em uma disciplina não disponível:");
+	public void classEnrollTest4(){
+		System.out.println("\nTeste de matrï¿½cula em uma disciplina nï¿½o disponï¿½vel:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, false, 0, "Marcus Poggi");
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
 		
@@ -94,8 +102,8 @@ public class TestCases {
 	}
 	
 	@Test
-	public void addPreRequisiteTest(){
-		System.out.println("\nTeste de adição de pré-requisitos em uma disciplina:");
+	public void classAddPreRequisiteTest(){
+		System.out.println("\nTeste de adiï¿½ï¿½o de prï¿½-requisitos em uma disciplina:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Class estruturaDeDados2 = new Class("Esturtura de Dados 2", "INF 1621", 60, false, true, 0, "Marcus Poggi");
 		
@@ -105,8 +113,8 @@ public class TestCases {
 	}
 	
 	@Test
-	public void listRequisitesTest(){
-		System.out.println("\nTeste de listagem de pré-requisitos de uma disciplina:");
+	public void classListRequisitesTest(){
+		System.out.println("\nTeste de listagem de prï¿½-requisitos de uma disciplina:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Class estruturaDeDados2 = new Class("Esturtura de Dados 2", "INF 1621", 60, false, true, 0, "Marcus Poggi");
 		
@@ -117,6 +125,14 @@ public class TestCases {
 		assertEquals("|INF 1620| ", preRequisites);
 	}
 	
+	
+	@Test
+	public void courseListClassesTest(){
+	 ArrayList<Departament> dpts = Generators.generateDepartments();
+	 Course course = dpts.get(0).getGradsec().getCourses().get(0);
+	 assertEquals(course.listClasses(),true);
+	 
+	}
 	@Test
 	public void coursePickClassTest(){
 		System.out.println("\nCourse::pickClass() test:");
@@ -128,14 +144,14 @@ public class TestCases {
 		classes.add(estruturaDeDados);
 		classes.add(estruturaDeDados2);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		
 		assertEquals(estruturaDeDados, info.pickClass(0));
 	}
 	
 	@Test
 	public void courseEnrollTest(){
-		System.out.println("\nTeste de matrícula em um curso:");
+		System.out.println("\nTeste de matrï¿½cula em um curso:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Class estruturaDeDados2 = new Class("Esturtura de Dados 2", "INF 1621", 60, false, true, 0, "Marcus Poggi");
 		
@@ -145,7 +161,7 @@ public class TestCases {
 		classes.add(estruturaDeDados2);
 		
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		
 		info.enroll(student);
 		
@@ -164,10 +180,40 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		
 		assertEquals(student, info.getStudents().get(0));
 	}
+	/*
+	@Test
+	public void secretaryEnroll(){
+		ArrayList<Course> courses = new ArrayList<Course>();
+		ArrayList<Class> classes = new ArrayList<Class>();
+		Class english = new Class("English", "1", 0, false, true, 0, "Me");
+		Class portuguese = new Class("Portuguese", "1", 0, false, true, 0, "Me");
+		classes.add(english);
+		classes.add(portuguese);
+		Course  course = new Course("Course", classes);
+		Course  course2 = new Course("Course2", classes);	
+		courses.add(course);
+		courses.add(course2);
+		Secretary secretary = new Secretary(false, courses);
+		Student student = new Student("Eu", 1, false, 0);
+		
+		InputStream stdin = System.in;
+		try {
+			  String input = "1\n"+System.getProperty("line.separator")+"1";
+			  System.setIn(new ByteArrayInputStream(input.getBytes()));
+			  Scanner scanner = new Scanner(System.in);
+			  secretary.enroll(student);
+			  
+			} finally {
+			  System.setIn(stdin);
+			}
+			
+		
+	}
+	*/
 	
 	@Test
 	public void secretaryPickCourseTest(){
@@ -179,7 +225,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -198,7 +244,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -210,6 +256,23 @@ public class TestCases {
 	}
 	
 	@Test
+	public void secretaryToString(){
+		
+		Course portuguese = new Course("PortugÃªs", new ArrayList<Class>());
+		Course english = new Course("English", new ArrayList<Class>());
+		ArrayList<Course> courses = new ArrayList<Course>();
+		courses.add(portuguese);
+		courses.add(english);
+		
+		Secretary secretary = new Secretary(false, courses);
+		String a = secretary.toString();
+		
+		
+	}
+	
+	
+	
+	@Test
 	public void departamentHasStudentsTest(){
 		System.out.println("\nDepartment::hasStudents() test:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
@@ -219,7 +282,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -242,7 +305,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -264,7 +327,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -279,7 +342,7 @@ public class TestCases {
 	
 	@Test
 	public void departamentPickStudentTest2(){
-		System.out.println("\nDepartment::pickStudent() com número invalido (-1):");
+		System.out.println("\nDepartment::pickStudent() com nï¿½mero invalido (-1):");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
 		estruturaDeDados.enroll(student);
@@ -287,7 +350,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -302,7 +365,7 @@ public class TestCases {
 	
 	@Test
 	public void departamentPickStudentTest3(){
-		System.out.println("\nDepartment::pickStudent() com número invalido (1):");
+		System.out.println("\nDepartment::pickStudent() com nï¿½mero invalido (1):");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
 		estruturaDeDados.enroll(student);
@@ -310,7 +373,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -325,7 +388,7 @@ public class TestCases {
 	
 	@Test
 	public void departamentPickStudentTest4(){
-		System.out.println("\nDepartment::pickStudent() com número invalido (2):");
+		System.out.println("\nDepartment::pickStudent() com nï¿½mero invalido (2):");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
 		estruturaDeDados.enroll(student);
@@ -333,7 +396,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -356,7 +419,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -379,7 +442,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -394,7 +457,7 @@ public class TestCases {
 	
 	@Test
 	public void departamentRegisterTest(){
-		System.out.println("\nTeste de matrícula em um departamento de um estudante já matriculado:");
+		System.out.println("\nTeste de matrï¿½cula em um departamento de um estudante jï¿½ matriculado:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
 		estruturaDeDados.enroll(student);
@@ -402,7 +465,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -417,7 +480,7 @@ public class TestCases {
 	
 	@Test
 	public void departamentRegisterTest2(){
-		System.out.println("\nTeste de matrícula em um departamento com outro estudante já matriculado:");
+		System.out.println("\nTeste de matrï¿½cula em um departamento com outro estudante jï¿½ matriculado:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
 		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
 		Student student2 = new Student("Naelson Cirilo", -1, false, 0);
@@ -427,7 +490,7 @@ public class TestCases {
 		ArrayList<Class> classes = new ArrayList<>();
 		classes.add(estruturaDeDados);
 		
-		Course info = new Course("Informática", classes);
+		Course info = new Course("Informï¿½tica", classes);
 		ArrayList<Course> courses = new ArrayList<>();
 		courses.add(info);
 		
@@ -439,5 +502,107 @@ public class TestCases {
 		
 		assertEquals(true, department.register(student2));
 	}
+	
+	@Test 
+	public void generatorGenerateDepartmentsTest(){
+		ArrayList<Departament> departments =  Generators.generateDepartments();
+		assertEquals(departments.size(),2);
+		assertEquals(0,departments.get(0).getStudents().size());
+		assertEquals(2,departments.get(1).getStudents().size());
+		
+	}
+	
+	@Test
+	public void studentRegisterStudentTest(){
+		String name = "JoÃ£o\n";
+		InputStream stdin = System.in;
+		try {
+			
+		  System.setIn(new ByteArrayInputStream(name.getBytes()));
+		  Scanner scanner = new Scanner(System.in);
+		  Student.registerStudent(1);
+		  
+		} finally {
+		  System.setIn(stdin);
+		}
+		
+		name = "Maria\n";
+		stdin = System.in;
+		try {
+			
+		  System.setIn(new ByteArrayInputStream(name.getBytes()));
+		  Scanner scanner = new Scanner(System.in);
+		  Student.registerStudent(2);
+		  
+		} finally {
+		  System.setIn(stdin);
+		}
+	}
+
+	
+	
+	@Test
+	public void studentReportIn(){
+		ArrayList<Class> classes = new ArrayList<Class>();
+		Class english = new Class("English","1",1,false,true,10,"Pasquale");
+		Class portuguese= new Class("Portuguese","1",1,false,true,10,"Pasquale");
+		classes.add(english);
+		classes.add(portuguese);
+		Course course = new Course("curso", classes);		
+		Student student = new Student("JoÃ£o", 1,false, 0);
+		course.enroll(student);
+		student.reportIn();
+	}
+	
+	@Test
+	public void mainReadIntTest(){
+		InputStream stdin = System.in;
+		int a;
+		int b;
+		int c;
+		try {
+			  String input = "1\n"+System.getProperty("line.separator");
+			  System.setIn(new ByteArrayInputStream(input.getBytes()));
+			  Scanner scanner = new Scanner(System.in);
+			  a=Main.readInt(1, 10);
+			  
+			} finally {
+			  System.setIn(stdin);
+			}
+		
+		
+		try {
+			  String input = "2\n"+System.getProperty("line.separator");
+			  System.setIn(new ByteArrayInputStream(input.getBytes()));
+			  Scanner scanner = new Scanner(System.in);
+			  b=Main.readInt(1, 10);
+			  
+			} finally {
+			  System.setIn(stdin);
+			}
+		
+		
+		try {
+			  String input = "a\n"+System.getProperty("line.separator");
+			  System.setIn(new ByteArrayInputStream(input.getBytes()));
+			  Scanner scanner = new Scanner(System.in);
+			  c=Main.readInt(1, 10);
+			  
+			} finally {
+			  System.setIn(stdin);
+			}
+		
+		
+		assertEquals(1, a);
+		assertEquals(2, b);
+		assertEquals(-1, c);
+	}
+	
+	@Test
+	public void teatcherConstructorTest(){
+		Teacher teacher = new Teacher();
+		assertEquals(teacher.getDepartment(), null);
+	}
+	
 	
 }

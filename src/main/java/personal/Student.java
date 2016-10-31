@@ -24,7 +24,9 @@ public class Student extends Person
 	public String reportIn(){
 		String output = "";
 		output = super.reportIn();
-		output = output+"Curso: "+course.getName()+"\n"+"DISCIPLINAS COM MATRÌCULA:\n";
+		output = output+"Curso: "
+		+course.getName()+"\n"
+				+"DISCIPLINAS COM MATRÌCULA:\n";
 		
 		for (int i=0; i<classes.size(); i++){
 			output=output+classes.get(i)+"\n";
@@ -38,13 +40,13 @@ public class Student extends Person
 		return true;
 	}
 	
-	public static  Student registerStudent(){
+	public static  Student registerStudent(int graduation){
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Nome: ");
 		String name = scan.next();
 		System.out.println("1 - Graduando \n 2 - Pos-Graduando");
 		boolean grad = false;
-		int selector = Main.readInt(1,2);		
+		int selector =graduation;// Main.readInt(1,2);		
 		if (selector == 1){
 			grad = true;
 		} else {
@@ -52,6 +54,7 @@ public class Student extends Person
 		}
 		Student newStudent = new Student(name,1,grad,0);
 		return newStudent;
+		
 	}
 	
 	public Student(String name, int id, boolean poGrad,int credits) {
@@ -62,11 +65,9 @@ public class Student extends Person
 		this.ID = -1;
 		this.posGrad = posGrad;
 		
+		
 	}
 
-	public Course getCourse() {
-		return course;
-	}
 
 	public void setCourse(Course course) {
 		this.course = course;
@@ -76,17 +77,11 @@ public class Student extends Person
 		return credits;
 	}
 
-	public void setCredits(int credits) {
-		this.credits = credits;
-	}
 
 	public ArrayList<String> getClasses() {
 		return classes;
 	}
 
-	public void setClasses(ArrayList<String> classes) {
-		this.classes = classes;
-	}
 
 
 	public boolean isPosGrad() {
@@ -94,9 +89,6 @@ public class Student extends Person
 	}
 
 
-	public void setPosGrad(boolean posGrad) {
-		this.posGrad = posGrad;
-	}
 
 
 	public Departament getDepartment() {

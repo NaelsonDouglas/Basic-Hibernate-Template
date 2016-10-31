@@ -85,6 +85,7 @@ public class Class {
 		}
 	}
 	
+	
 	public String toString(){
 		String output = "";
 		String studentsList ="";
@@ -98,6 +99,7 @@ public class Class {
 		
 	}
 	
+	
 	private String booleanToSimNao(boolean bool){
 		if (bool){
 			return "Sim";
@@ -110,15 +112,9 @@ public class Class {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
 	
 	
 
-	public Course getCourse() {
-		return course;
-	}
 
 
 	public void setCourse(Course course) {
@@ -130,65 +126,38 @@ public class Class {
 		return ID;
 	}
 
-	public void setID(String iD) {
-		ID = iD;
-	}
 
 	public int getCredits() {
 		return credits;
 	}
 
-	public void setCredits(int credits) {
-		this.credits = credits;
-	}
 
 	public boolean isElective() {
 		return isElective;
 	}
 
-	public void setElective(boolean isElective) {
-		this.isElective = isElective;
-	}
 
 	public boolean isAvailable() {
 		return isAvailable;
 	}
 
-	public void setAvailable(boolean isAvailable) {
-		this.isAvailable = isAvailable;
-	}
 
 	public int getMinCredits() {
 		return minCredits;
 	}
 
-	public void setMinCredits(int minCredits) {
-		this.minCredits = minCredits;
-	}
 
-	public ArrayList<Class> getPrerequisites() {
-		return prerequisites;
-	}
 
-	public void setPrerequisites(ArrayList<Class> prerequisites) {
-		this.prerequisites = prerequisites;
-	}
 
 	public String getTeacher() {
 		return teacher;
 	}
 
-	public void setTeacher(String teacher) {
-		this.teacher = teacher;
-	}
 
 	public ArrayList<Student> getStudents() {
 		return students;
 	}
 
-	public void setStudents(ArrayList<Student> students) {
-		this.students = students;
-	}
 
 }
 

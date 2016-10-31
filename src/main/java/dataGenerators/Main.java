@@ -8,7 +8,7 @@ import personal.Student;
 
 public class Main {
 	static ArrayList<Departament>departaments = new ArrayList<Departament>();
-	
+	/*
 	public static void main(String[] args) {
 		
 		
@@ -94,7 +94,7 @@ public class Main {
 	
 	
 	
-	
+	*/
 	public static int readInt(int min, int max){
 		Scanner scan = new Scanner(System.in);
 		int input = min-1;
@@ -103,17 +103,10 @@ public class Main {
 			input = scan.nextInt();
 		} catch (Exception e) {
 			System.out.print("Valor inválido");
-			input = scan.nextInt();
-		}
-		while(input < min || input > max){
-		
 			System.out.print("O valor deve ficar entre "+min+" e "+max);
-			
-			try {
-				input = scan.nextInt();
-			} catch (Exception e) {
-			}
+			return -1;
 		}
+		
 		return input;	
 	}
 
