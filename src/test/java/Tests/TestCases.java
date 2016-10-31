@@ -111,6 +111,35 @@ public class TestCases {
 		
 		assertEquals(true, isPreRequisitAdded);
 	}
+	@Test 
+	public void classToStringTest(){
+		Departament departament = Generators.generateDepartments().get(0);
+		
+		Class studentClass =  departament.getGradsec().getCourses().get(0).getClasses().get(0);
+		
+		Student student = new Student("eu", 1,false, 60000);
+		studentClass.enroll(student);
+		String classContent =  studentClass.toString();
+		
+		String tolken1 = "Créditos";
+		String tolken2 = "Eletiva";
+		String tolken3 = "Professor";
+		
+		boolean comparationTk1 = classContent.toLowerCase().contains(tolken1.toLowerCase());
+		boolean comparationTk2 = classContent.toLowerCase().contains(tolken2.toLowerCase());
+		boolean comparationTk3 = classContent.toLowerCase().contains(tolken3.toLowerCase());
+		
+		assertEquals(true, comparationTk1);
+		assertEquals(true, comparationTk2);
+		assertEquals(true, comparationTk3);
+
+
+
+
+	
+	}
+	
+	
 	
 	@Test
 	public void classListRequisitesTest(){
@@ -598,6 +627,7 @@ public class TestCases {
 		assertEquals(-1, c);
 	}
 	
+	
 	@Test
 	public void teatcherConstructorTest(){
 		Teacher teacher = new Teacher();
@@ -606,3 +636,4 @@ public class TestCases {
 	
 	
 }
+

@@ -92,9 +92,16 @@ public class Class {
 		for (Student i:students){
 			studentsList = studentsList+i.getName()+" | ";
 		}
-		output = "Nome: " + name + "\n" + "Código: " + ID + "\n" + "Créditos: " + Integer.toString(credits) + "\n" + "Eletiva: " + booleanToSimNao(isElective()) + "\n" +
-		"Disponível: " + booleanToSimNao(isAvailable()) + "\n" + "Créditos necessários: " + Integer.toString(getMinCredits()) + "\n"+"Pre-requisitos: "+listRequisites() +
-		"\n" + "Professor: " + getTeacher() + "\n"+"Matriculado(a)s: "+studentsList+"\n\n";
+		output = "Nome: " + name + "\n" + 
+		"Código: " + ID +"\n" + 
+		"Créditos: " + Integer.toString(credits) +	"\n" +
+		"Eletiva: " +
+		booleanToSimNao(isElective()) +"\n" +
+		"Disponível: " + booleanToSimNao(isAvailable()) + "\n" +
+		"Créditos necessários: " + Integer.toString(getMinCredits()) + "\n"+
+		"Pre-requisitos: "+listRequisites() +
+		"\n" + "Professor: " + getTeacher() + "\n"+
+		"Matriculado(a)s: "+studentsList+"\n\n";
 		return output;		
 		
 	}
