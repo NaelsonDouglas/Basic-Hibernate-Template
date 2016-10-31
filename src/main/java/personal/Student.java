@@ -25,7 +25,7 @@ public class Student extends Person
 		String output = "";
 		output = super.reportIn();
 		output = output+"Curso: "
-		+course.getName()+"\n"
+		+ 				course.getName()+"\n"
 				+"DISCIPLINAS COM MATRÌCULA:\n";
 		
 		for (int i=0; i<classes.size(); i++){
@@ -59,7 +59,7 @@ public class Student extends Person
 	
 	public Student(String name, int id, boolean poGrad,int credits) {
 		super(name,id);
-		this.course = null;
+		this.course = new Course("",new ArrayList<Class>());
 		this.credits = credits;
 		this.classes = new ArrayList<String>();
 		this.ID = -1;

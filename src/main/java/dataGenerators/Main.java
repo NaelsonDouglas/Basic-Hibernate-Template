@@ -8,7 +8,7 @@ import personal.Student;
 
 public class Main {
 	static ArrayList<Departament>departaments = new ArrayList<Departament>();
-	/*
+	
 	public static void main(String[] args) {
 		
 		
@@ -28,7 +28,9 @@ public class Main {
 			
 			if (selector == 1){
 				Departament department = pickDepartment();				
-				department.register(Student.registerStudent());			
+				System.out.println("1 - Graduação");
+				System.out.println("2 - PosGraduação");
+				department.register(Student.registerStudent(readInt(1, 2)));			
 			} else if (selector == 2){
 				Departament department = pickDepartment();
 				int numberOfStudents = department.listStudents();
@@ -94,7 +96,7 @@ public class Main {
 	
 	
 	
-	*/
+	
 	public static int readInt(int min, int max){
 		Scanner scan = new Scanner(System.in);
 		int input = min-1;
