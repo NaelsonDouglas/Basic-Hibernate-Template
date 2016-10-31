@@ -5,8 +5,6 @@ public class Person{
 	
 	protected String name;	
 	protected int ID;
-
-	
 	
 	public String reportIn(){
 		String output = "";
@@ -15,18 +13,10 @@ public class Person{
 		return output;
 	}
 	
-	
-	
 	public Person(String name, int iD) {
 		super();
 		this.name = name;
 		ID = iD;
-	}
-
-
-
-	public Person(){
-		super();
 	}
 
 	public String getName() {

@@ -40,7 +40,6 @@ public class Departament {
 		listStudents();
 		int selector = Main.readInt(0, students.size());
 		return students.get(selector);		
-		
 	}
 	
 	public boolean hasStudents(){
@@ -50,6 +49,7 @@ public class Departament {
 		
 		return false;
 	}
+	
 	public Student pickStudent(int i){
 		if (i < 0 || i >= students.size()){
 			System.out.println("Número inválido\n");
@@ -103,7 +103,6 @@ public class Departament {
 		System.out.println("Aluno "+student.getName()+" registrado(a) com a matrícula: "+student.getID());
 		return true;
 	}
-	
 	
 	public String reportGradIn(){
 		return gradSec.reportIn();

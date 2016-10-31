@@ -32,15 +32,11 @@ public class Student extends Person
 		output=output+"\n";		
 		return output;
 	}
-	
 
 	public boolean addClass(String className){
 		classes.add(className);
 		return true;
 	}
-	
-	
-	
 	
 	public static  Student registerStudent(){
 		Scanner scan = new Scanner(System.in);
@@ -66,13 +62,6 @@ public class Student extends Person
 		this.ID = -1;
 		this.posGrad = posGrad;
 		
-	}
-
-
-
-
-	public Student(){
-		super();
 	}
 
 	public Course getCourse() {

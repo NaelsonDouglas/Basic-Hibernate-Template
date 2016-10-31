@@ -52,6 +52,7 @@ public class Secretary {
 		return students;
 		
 	}
+	
 	public boolean isPosGrad() {
 		return posGrad;
 	}
