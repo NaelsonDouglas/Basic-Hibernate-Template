@@ -277,6 +277,7 @@ public class TestCases {
 		assertEquals(student, department.pickStudent(0));
 	}
 	
+	@Test
 	public void departamentPickStudentTest2(){
 		System.out.println("\nDepartment::pickStudent() com número invalido (-1):");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
@@ -299,6 +300,7 @@ public class TestCases {
 		assertEquals(null, department.pickStudent(-1));
 	}
 	
+	@Test
 	public void departamentPickStudentTest3(){
 		System.out.println("\nDepartment::pickStudent() com número invalido (1):");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
@@ -321,27 +323,28 @@ public class TestCases {
 		assertEquals(null, department.pickStudent(1));
 	}
 	
+	@Test
 	public void departamentPickStudentTest4(){
-	System.out.println("\nDepartment::pickStudent() com número invalido (2):");
-	Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
-	Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
-	estruturaDeDados.enroll(student);
-	
-	ArrayList<Class> classes = new ArrayList<>();
-	classes.add(estruturaDeDados);
-	
-	Course info = new Course("Informática", classes);
-	ArrayList<Course> courses = new ArrayList<>();
-	courses.add(info);
-	
-	Secretary infoSecretary = new Secretary(false, courses);
-	Secretary infoPosSecretary = new Secretary(true, courses);
-	
-	Departament department = new Departament("Departamento I", 0, infoSecretary, infoPosSecretary);
-	department.register(student);
-	
-	assertEquals(null, department.pickStudent(2));
-}
+		System.out.println("\nDepartment::pickStudent() com número invalido (2):");
+		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
+		Student student = new Student("Henrique de Souza Lira", 13210290, false, 0);
+		estruturaDeDados.enroll(student);
+		
+		ArrayList<Class> classes = new ArrayList<>();
+		classes.add(estruturaDeDados);
+		
+		Course info = new Course("Informática", classes);
+		ArrayList<Course> courses = new ArrayList<>();
+		courses.add(info);
+		
+		Secretary infoSecretary = new Secretary(false, courses);
+		Secretary infoPosSecretary = new Secretary(true, courses);
+		
+		Departament department = new Departament("Departamento I", 0, infoSecretary, infoPosSecretary);
+		department.register(student);
+		
+		assertEquals(null, department.pickStudent(1));
+	}
 	
 	@Test
 	public void departamentGetStudentsTest(){
@@ -412,6 +415,7 @@ public class TestCases {
 		assertEquals(false, department.register(student));
 	}
 	
+	@Test
 	public void departamentRegisterTest2(){
 		System.out.println("\nTeste de matrícula em um departamento com outro estudante já matriculado:");
 		Class estruturaDeDados = new Class("Esturtura de Dados", "INF 1620", 60, false, true, 0, "Marcus Poggi");
@@ -433,7 +437,7 @@ public class TestCases {
 		Departament department = new Departament("Departamento I", 0, infoSecretary, infoPosSecretary);
 		department.register(student);
 		
-		assertEquals(false, department.register(student2));
+		assertEquals(true, department.register(student2));
 	}
 	
 }
